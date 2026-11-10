@@ -27,3 +27,27 @@ pytest
 
 # Projekt_programistyczny
 >>>>>>> 5c2abe6206b7fe1450a6f4779055e3184be1d936
+
+
+
+logika oprogramowania:
+
+
+
+1. Marka: Toyota
+|
+|
+v
+2. Używane
+|
+|
+v
+3. sprawne -- nie sprawne
+|
+|
+v
+4. przebieg -- rocznik -- itd
+|
+|
+v
+5. najtansze -- najdrozsze
