@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Samochody{% endblock %}
+{% block content %}
+<h2>Dodaj samochód</h2>
+<form method="post" class="car-form">
+    <label>Marka* <input name="marka" required></label>
+    <label>Model* <input name="model" required></label>
+    <label>Cena (zł)* <input name="cena" type="number" min="0" step="0.01" required></label>
+    <label>Rocznik <input name="rocznik" type="number" min="1900" max="2100"></label>
+    <label>Przebieg (km) <input name="przebieg" type="number" min="0"></label>
+    <label>Paliwo
+        <select name="paliwo">
+            <option value="">— wybierz —</option><option>Benzyna</option>
+            <option>Diesel</option><option>Hybryda</option><option>Elektryczny</option><option>LPG</option>
+        </select>
+    </label>
+    <label>Skrzynia biegów <input name="skrzynia_biegow" placeholder="Manualna / automatyczna"></label>
+    <label>Pojemność silnika (l) <input name="pojemnosc_silnika" type="number" min="0" step="0.1"></label>
+    <label>Moc (KM) <input name="moc" type="number" min="0"></label>
+    <label>VIN <input name="vin" maxlength="17"></label>
+    <label>Sprzedawca <input name="sprzedawca"></label>
+    <label>Stan techniczny <input name="stan_techniczny"></label>
+    <label>Lokalizacja <input name="lokalizacja"></label>
+    <button type="submit">Dodaj samochód</button>
+</form>
+
+<h2>Lista samochodów</h2>
+<form method="get" class="filter">
+    <label>Filtruj według marki <input name="marka" value="{{ selected_marka }}"></label>
+    <button type="submit">Szukaj</button>
+    <a href="{{ url_for('cars.list_cars') }}">Wyczyść</a>
+</form>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Marka</th><th>Model</th><th>Cena</th><th>Rocznik</th><th>Przebieg</th><th>Paliwo</th><th>Lokalizacja</th></tr></thead>
+<tbody>
+{% for auto in samochody %}
+<tr><td>{{ auto.marka }}</td><td>{{ auto.model }}</td>
+<td>{{ "%.2f"|format(auto.cena) }} zł</td><td>{{ auto.rocznik or "—" }}</td>
+<td>{{ auto.przebieg if auto.przebieg is not none else "—" }}</td>
+<td>{{ auto.paliwo or "—" }}</td><td>{{ auto.lokalizacja or "—" }}</td></tr>
+{% else %}
+<tr><td colspan="7">Brak samochodów. Dodaj pierwszy rekord w formularzu.</td></tr>
+{% endfor %}
+</tbody></table>
+</div>
+<p class="note">Pola oznaczone * są wymagane. Dane wprowadzane do tej wersji są zapisywane lokalnie w pliku SQLite.</p>
+{% endblock %}

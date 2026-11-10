@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Analiza cen{% endblock %}
+{% block content %}
+<h2>Podstawowe statystyki</h2>
+<div class="stats">
+    <article><strong>{{ summary.liczba or 0 }}</strong><span>Liczba samochodów</span></article>
+    <article><strong>{{ "%.2f"|format(summary.srednia or 0) }} zł</strong><span>Średnia cena</span></article>
+    <article><strong>{{ "%.2f"|format(summary.minimum or 0) }} zł</strong><span>Najniższa cena</span></article>
+    <article><strong>{{ "%.2f"|format(summary.maksimum or 0) }} zł</strong><span>Najwyższa cena</span></article>
+</div>
+<h2>Średnia cena według marki</h2>
+<table>
+<thead><tr><th>Marka</th><th>Liczba ofert</th><th>Średnia cena</th></tr></thead>
+<tbody>
+{% for item in by_brand %}
+<tr><td>{{ item.marka }}</td><td>{{ item.liczba }}</td><td>{{ "%.2f"|format(item.srednia_cena) }} zł</td></tr>
+{% else %}
+<tr><td colspan="3">Dodaj samochody, aby zobaczyć analizę.</td></tr>
+{% endfor %}
+</tbody></table>
+{% endblock %}

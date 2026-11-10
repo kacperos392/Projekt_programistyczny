@@ -1,0 +1,24 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; background: #f4f6f8; color: #202936; }
+header { background: #183b5b; color: white; padding: 22px max(5%, calc((100% - 1100px)/2)); }
+header h1 { margin: 0 0 12px; font-size: 25px; }
+nav { display: flex; gap: 20px; }
+nav a { color: white; }
+main { max-width: 1100px; margin: 28px auto; padding: 0 18px; }
+h2 { margin-top: 28px; }
+.car-form, .filter { background: white; padding: 18px; border-radius: 8px; display: flex; flex-wrap: wrap; gap: 12px; align-items: end; }
+label { display: flex; flex-direction: column; gap: 5px; min-width: 160px; flex: 1; }
+input, select, button { padding: 10px; border: 1px solid #cbd3dc; border-radius: 5px; }
+button { background: #2463a6; color: white; border: 0; cursor: pointer; }
+button:hover { background: #194b82; }
+table { width: 100%; border-collapse: collapse; background: white; margin-top: 14px; }
+th, td { border-bottom: 1px solid #e0e5ea; padding: 11px; text-align: left; }
+th { background: #e8eef4; }
+.table-wrap { overflow-x: auto; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.stats article { background: white; padding: 20px; border-radius: 8px; display: flex; flex-direction: column; gap: 8px; }
+.stats strong { font-size: 22px; }
+.flash { padding: 12px; border-radius: 5px; background: #e5f5e9; }
+.flash.error { background: #ffe8e8; }
+.note { color: #64748b; font-size: 13px; }
+@media (max-width: 600px) { main { margin-top: 15px; } header h1 { font-size: 20px; } }

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Analiza cen samochodów{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <h1>Analiza cen samochodów używanych</h1>
+    <nav><a href="{{ url_for('cars.list_cars') }}">Samochody</a>
+    <a href="{{ url_for('analysis.dashboard') }}">Analiza cen</a></nav>
+</header>
+<main>
+    {% for category, message in get_flashed_messages(with_categories=true) %}
+        <p class="flash {{ category }}">{{ message }}</p>
+    {% endfor %}
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>
