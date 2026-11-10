@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Analiza cen samochodów używanych
 
 Prosty szkielet aplikacji internetowej w Pythonie: Flask + SQLite + HTML/CSS.
@@ -51,3 +52,6 @@ pytest
 
 ## Ważne
 To jest szkielet edukacyjny, a nie gotowy system produkcyjny. Przed użyciem publicznym trzeba dodać m.in. silniejszą walidację wszystkich pól, konfigurację sekretów, obsługę błędów i ochronę formularzy. Dane w bazie powinny być prawdziwe albo wyraźnie oznaczone jako testowe.
+=======
+# Projekt_programistyczny
+>>>>>>> 5c2abe6206b7fe1450a6f4779055e3184be1d936
